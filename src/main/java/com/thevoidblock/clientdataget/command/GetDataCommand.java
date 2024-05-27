@@ -20,22 +20,21 @@ import java.util.List;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
-public class StealDataCommand {
+public class GetDataCommand {
 
     private static final SimpleCommandExceptionType GET_MULTIPLE_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.data.get.multiple"));
 
     public static void register() {
-        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
-            dispatcher.register(
+        ClientCommandRegistrationCallback.EVENT.register(
+                (dispatcher, registryAccess) -> dispatcher.register(
                     literal("getdata")
                             .then(argument("target", CEntityArgument.entity())
                                     .then(argument("path", CNbtPathArgument.nbtPath())
-                                            .executes(StealDataCommand::executeGetPath)
+                                            .executes(GetDataCommand::executeGetPath)
                                     )
-                                    .executes(StealDataCommand::executeGet)
+                                    .executes(GetDataCommand::executeGet)
                             )
-            );
-        });
+        ));
     }
 
     public static NbtElement getNBT(CommandContext<FabricClientCommandSource> context, NbtCompound nbt) throws CommandSyntaxException {
@@ -43,7 +42,7 @@ public class StealDataCommand {
         List<NbtElement> collection = CNbtPathArgument.getNbtPath(context, "path").get(nbt);
 
         Iterator<NbtElement> iterator = collection.iterator();
-        NbtElement nbtElement = (NbtElement)iterator.next();
+        NbtElement nbtElement = iterator.next();
         if (iterator.hasNext()) {
             throw GET_MULTIPLE_EXCEPTION.create();
         }
