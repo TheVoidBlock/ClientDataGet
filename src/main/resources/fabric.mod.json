@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "itemstealer",
+  "version": "${version}",
+  "name": "Client Side Data Get",
+  "description": "Adds a client side data getting command /getdata <entity> <path>",
+  "authors": [
+    "TheVoidBlock"
+  ],
+  "contact": {
+    "sources": "https://github.com/thevoidblock/clientdataget",
+    "homepage": "https://modrinth.com/mod/clientdataget",
+    "issues": "https://github.com/thevoidblock/clientdataget/issues"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/clientdataget/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.thevoidblock.clientdataget.ClientDataGet"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
