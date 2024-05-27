@@ -3,9 +3,9 @@ package com.thevoidblock.clientdataget.command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
-import dev.xpple.clientarguments.arguments.CEntityArgument;
+import dev.xpple.clientarguments.arguments.CEntityArgumentType;
 import dev.xpple.clientarguments.arguments.CEntitySelector;
-import dev.xpple.clientarguments.arguments.CNbtPathArgument;
+import dev.xpple.clientarguments.arguments.CNbtPathArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.entity.Entity;
@@ -28,8 +28,8 @@ public class GetDataCommand {
         ClientCommandRegistrationCallback.EVENT.register(
                 (dispatcher, registryAccess) -> dispatcher.register(
                     literal("getdata")
-                            .then(argument("target", CEntityArgument.entity())
-                                    .then(argument("path", CNbtPathArgument.nbtPath())
+                            .then(argument("target", CEntityArgumentType.entity())
+                                    .then(argument("path", CNbtPathArgumentType.nbtPath())
                                             .executes(GetDataCommand::executeGetPath)
                                     )
                                     .executes(GetDataCommand::executeGet)
@@ -39,7 +39,7 @@ public class GetDataCommand {
 
     public static NbtElement getNBT(CommandContext<FabricClientCommandSource> context, NbtCompound nbt) throws CommandSyntaxException {
 
-        List<NbtElement> collection = CNbtPathArgument.getNbtPath(context, "path").get(nbt);
+        List<NbtElement> collection = CNbtPathArgumentType.getCNbtPath(context, "path").get(nbt);
 
         Iterator<NbtElement> iterator = collection.iterator();
         NbtElement nbtElement = iterator.next();
