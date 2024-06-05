@@ -34,12 +34,10 @@ public class TextFormatter {
         int removedCharters = 0;
         int lastIndex = 0;
         Boolean singleQuotationMark = Boolean.FALSE;
-        Boolean lineAdded = Boolean.FALSE;
         String lastString = "";
 
 
         while (m.find()) {
-            lineAdded = Boolean.FALSE;
 
             /*  **Checking for single quotation marks**
              *  After that we check if the last char was a single quotation mark we can check that by checking the variable "singleQuotationMark".
