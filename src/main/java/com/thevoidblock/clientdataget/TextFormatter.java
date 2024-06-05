@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022, MisionThi.  All rights reserved.
+ * Copyrights licensed under the MIT License.
+ * See https://github.com/MisionThi/NBTtooltips/tree/main/LICENSE for terms.
+ */
+
 package com.thevoidblock.clientdataget;
 
 import net.minecraft.text.MutableText;
