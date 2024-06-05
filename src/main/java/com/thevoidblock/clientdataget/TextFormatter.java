@@ -31,7 +31,6 @@ public class TextFormatter {
         Formatting typeColor = Color(ClientDataGetConfig.TYPE_COLOR);
         Formatting fieldColor = Color(ClientDataGetConfig.FIELD_COLOR);
 
-        int removedCharters = 0;
         int lastIndex = 0;
         Boolean singleQuotationMark = Boolean.FALSE;
         String lastString = "";
