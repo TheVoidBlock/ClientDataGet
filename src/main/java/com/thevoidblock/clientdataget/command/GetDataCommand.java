@@ -3,6 +3,7 @@ package com.thevoidblock.clientdataget.command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import com.thevoidblock.clientdataget.TextFormatter;
 import dev.xpple.clientarguments.arguments.CEntityArgument;
 import dev.xpple.clientarguments.arguments.CEntitySelector;
 import dev.xpple.clientarguments.arguments.CNbtPathArgument;
@@ -56,7 +57,7 @@ public class GetDataCommand {
         NbtCompound nbt = new NbtCompound();
         entity.writeNbt(nbt);
 
-        Text nbtText = Text.literal(nbt.asString());
+        Text nbtText = TextFormatter.FormatNBTText(Text.literal(nbt.asString()));
 
         MutableText returnText = Text.literal(entity.getName().getString());
         returnText.append(" Has The Following Entity Data: ");
@@ -75,7 +76,7 @@ public class GetDataCommand {
 
         NbtElement nbtElement = getNBTWithPath(context, nbt);
 
-        Text nbtText = Text.literal(nbtElement.asString());
+        Text nbtText = TextFormatter.FormatNBTText(Text.literal(nbtElement.asString()));
 
         MutableText returnText = Text.literal(entity.getName().getString());
         returnText.append(" Has The Following Entity Data: ");
