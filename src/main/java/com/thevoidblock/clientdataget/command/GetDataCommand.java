@@ -37,7 +37,7 @@ public class GetDataCommand {
         ));
     }
 
-    public static NbtElement getNBTWithPath(CommandContext<FabricClientCommandSource> context, NbtCompound nbt) throws CommandSyntaxException {
+    private static NbtElement getNBTWithPath(CommandContext<FabricClientCommandSource> context, NbtCompound nbt) throws CommandSyntaxException {
 
         List<NbtElement> collection = CNbtPathArgumentType.getCNbtPath(context, "path").get(nbt);
 
@@ -49,7 +49,7 @@ public class GetDataCommand {
         return nbtElement;
     }
 
-    public static int executeGet(CommandContext<FabricClientCommandSource> context) throws CommandSyntaxException {
+    private static int executeGet(CommandContext<FabricClientCommandSource> context) throws CommandSyntaxException {
 
         Entity entity = context.getArgument("target", CEntitySelector.class).getEntity(context.getSource());
 
@@ -66,7 +66,7 @@ public class GetDataCommand {
         return 1;
     }
 
-    public static int executeGetPath(CommandContext<FabricClientCommandSource> context) throws CommandSyntaxException {
+    private static int executeGetPath(CommandContext<FabricClientCommandSource> context) throws CommandSyntaxException {
 
         Entity entity = context.getArgument("target", CEntitySelector.class).getEntity(context.getSource());
 
