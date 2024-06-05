@@ -29,4 +29,6 @@ public class ClientDataGetConfig {
     public static String INTEGER_COLOR = "gold";
     public static String TYPE_COLOR = "red";
     public static String FIELD_COLOR = "aqua";
+
+    public static String RETURN_TEXT = "has the following client entity data: ";
 }
