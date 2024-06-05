@@ -3,6 +3,7 @@ package com.thevoidblock.clientdataget.command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import com.thevoidblock.clientdataget.ClientDataGetConfig;
 import com.thevoidblock.clientdataget.TextFormatter;
 import dev.xpple.clientarguments.arguments.CEntityArgument;
 import dev.xpple.clientarguments.arguments.CEntitySelector;
@@ -60,7 +61,7 @@ public class GetDataCommand {
         Text nbtText = TextFormatter.FormatNBTText(Text.literal(nbt.asString()));
 
         MutableText returnText = Text.literal(entity.getName().getString());
-        returnText.append(" Has The Following Entity Data: ");
+        returnText.append(String.format(" %s", ClientDataGetConfig.RETURN_TEXT));
         returnText.append(nbtText);
 
         context.getSource().sendFeedback(returnText);
@@ -79,7 +80,7 @@ public class GetDataCommand {
         Text nbtText = TextFormatter.FormatNBTText(Text.literal(nbtElement.asString()));
 
         MutableText returnText = Text.literal(entity.getName().getString());
-        returnText.append(" Has The Following Entity Data: ");
+        returnText.append(String.format(" %s", ClientDataGetConfig.RETURN_TEXT));
         returnText.append(nbtText);
 
         context.getSource().sendFeedback(returnText);
