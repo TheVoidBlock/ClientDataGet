@@ -49,6 +49,15 @@ public class GetDataCommand {
         return nbtElement;
     }
 
+    private static NbtCompound getNBTFromEntityContext(CommandContext<FabricClientCommandSource> context, String name) throws CommandSyntaxException {
+        Entity entity = context.getArgument(name, CEntitySelector.class).getEntity(context.getSource());
+
+        NbtCompound nbt = new NbtCompound();
+        entity.writeNbt(nbt);
+
+        return nbt;
+    }
+
     public static int executeGet(CommandContext<FabricClientCommandSource> context) throws CommandSyntaxException {
 
         Entity entity = context.getArgument("target", CEntitySelector.class).getEntity(context.getSource());
