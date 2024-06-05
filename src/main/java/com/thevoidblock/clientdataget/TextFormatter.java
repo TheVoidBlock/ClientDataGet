@@ -30,7 +30,6 @@ public class TextFormatter {
         Formatting integerColor = Color(ClientDataGetConfig.INTEGER_COLOR);
         Formatting typeColor = Color(ClientDataGetConfig.TYPE_COLOR);
         Formatting fieldColor = Color(ClientDataGetConfig.FIELD_COLOR);
-        Formatting lstringColor = Color(ClientDataGetConfig.LSTRING_COLOR);
 
         int removedCharters = 0;
         int lastIndex = 0;
